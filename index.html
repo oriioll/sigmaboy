@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>🤡🤡</title>
+    <style>
+        .popup {
+            position: absolute;
+            background-color: #ffcccc;
+            border: 2px solid #ff0000;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+            font-family: Arial, sans-serif;
+            color: #000;
+        }
+        .popup button {
+            margin-top: 10px;
+            background-color: #ff0000;
+            color: #fff;
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+        }
+        .popup button:hover {
+            background-color: #cc0000;
+        }
+    </style>
+    <script>
+        window.onload = function () {
+            // Función para mostrar alertas repetitivas sin bloquear el flujo
+            function showAlertAndFullscreen() {
+                // Mostrar una alerta que no bloquee el código
+                const alertDiv = document.createElement('div');
+                alertDiv.style.position = 'absolute';
+                alertDiv.style.top = '20px';
+                alertDiv.style.left = '50%';
+                alertDiv.style.transform = 'translateX(-50%)';
+                alertDiv.style.backgroundColor = '#ffcccc';
+                alertDiv.style.padding = '10px';
+                alertDiv.style.border = '2px solid #ff0000';
+                alertDiv.style.zIndex = '1001';
+                alertDiv.innerHTML = "YOU HAVE BEEN HACKED 🤡";
+
+                document.body.appendChild(alertDiv);
+
+                // Esperar un breve momento y luego intentar el modo pantalla completa
+                setTimeout(function () {
+                    if (document.documentElement.requestFullscreen) {
+                        document.documentElement.requestFullscreen();
+                    } else if (document.documentElement.webkitRequestFullscreen) { // Safari/Chrome
+                        document.documentElement.webkitRequestFullscreen();
+                    } else if (document.documentElement.mozRequestFullScreen) { // Firefox
+                        document.documentElement.mozRequestFullScreen();
+                    } else if (document.documentElement.msRequestFullscreen) { // IE/Edge
+                        document.documentElement.msRequestFullscreen();
+                    }
+
+                    // Continuar mostrando alertas repetitivas
+                    setInterval(function () {
+                        const alertDiv = document.createElement('div');
+                        alertDiv.style.position = 'absolute';
+                        alertDiv.style.top = '20px';
+                        alertDiv.style.left = '50%';
+                        alertDiv.style.transform = 'translateX(-50%)';
+                        alertDiv.style.backgroundColor = '#ffcccc';
+                        alertDiv.style.padding = '10px';
+                        alertDiv.style.border = '2px solid #ff0000';
+                        alertDiv.style.zIndex = '1001';
+                        alertDiv.innerHTML = "YOU HAVE BEEN HACKED 🤡";
+                        document.body.appendChild(alertDiv);
+                    }, 1000); // Aseguramos que las alertas siguen apareciendo cada 1 segundo
+                }, 10); // Breve retraso para asegurar la ejecución tras la alerta
+            }
+
+            // Función para crear popups aleatorios
+            function createPopup() {
+                const popup = document.createElement('div');
+                popup.className = 'popup';
+                popup.innerHTML = `
+                    <p>YOU HAVE BEEN HACKED 🤡🤡</p>
+                    <button onclick="this.parentElement.remove()">🤡🤡🤡</button>
+                `;
+
+                // Asignar una posición aleatoria dentro de la ventana del navegador
+                const x = Math.random() * (window.innerWidth - 200); // 200 es el ancho estimado del popup
+                const y = Math.random() * (window.innerHeight - 100); // 100 es la altura estimada del popup
+                popup.style.left = `${x}px`;
+                popup.style.top = `${y}px`;
+
+                // Añadir el popup al body del documento
+                document.body.appendChild(popup);
+            }
+
+            // Llamar a las funciones al cargar la página
+            showAlertAndFullscreen();
+            createPopup(); // Crear el primer pop-up de inmediato al cargar la página
+
+            // Generar popups aleatorios cada 100 ms (más pop-ups por segundo)
+            setInterval(createPopup, 100); // Genera un nuevo popup cada 100 ms (10 pop-ups por segundo)
+        };
+    </script>
+</head>
+<body>
+    <audio autoplay loop>
+        <source src="audio.mp3" type="audio/mp3">
+        Tu navegador no soporta la etiqueta de audio.
+    </audio>
+</body>
+</html>
